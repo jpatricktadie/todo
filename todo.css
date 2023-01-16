@@ -1,0 +1,102 @@
+
+
+ /* overall settings */
+ body *, body{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+/* main config */
+.main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* menu bar settings */
+.menu_bar{
+    width:250px;
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    padding:10px;
+    border-radius:5px;
+    background:linear-gradient(to right bottom, rgb(218, 136, 43), rgb(116, 219, 116));
+}
+input:not(input[type="text"]){
+    display:none;
+}
+label::after{
+    content:url("menu.png");
+}
+input[type="checkbox"]:checked + label::after{
+    content:url("menu_close.png");
+}
+input[type="checkbox"]:checked ~ .menu{
+    opacity:1;
+}
+
+/* menu conent */
+.menu{
+    width:100%;
+    position:absolute;
+    top:40px;
+    left:0;
+    opacity:0;
+    transition: opacity 1s .5s ease;
+}
+
+/* list config */
+.new_list{
+    position:absolute;
+    display:flex;
+    gap:5px;
+}
+.add_list::after{
+    content:url("add.png");
+}
+.input_list{
+    padding-top:6px;
+    display:none;
+}
+.new_list:hover .input_list{
+    display:block;
+}
+.add_list{
+    transition: all 1s .5s ease;
+}
+.new_list:hover .add_list{
+    transform:rotate(180deg)
+}
+
+/* item config */
+.item{
+    display:flex;
+    justify-content:center;
+    margin:10px;
+}
+.text{
+    padding:5px;
+    background:linear-gradient(to right, rgb(191, 236, 238),rgb(233, 200, 200));
+    border-radius:5px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.item:hover{
+    justify-content:space-between;
+    background:linear-gradient(to right, rgb(191, 236, 238),rgb(233, 200, 200));
+    border-radius:5px;
+}
+.item:hover .text{
+    background:none;
+}
+.item:hover .close::after{
+    content:url("item_close.png");
+}
+.item:hover .close{
+    padding-top:6px;
+}
